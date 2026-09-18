@@ -102,7 +102,7 @@ Across 18 five-point Likert-scale statements, the overall descriptive mean was 4
 
 ### Interactive Narrative
 
-![Interactive Narrative](screenshots/personality-assessment.png)
+![Interactive Narrative](screenshots/Personality-assessment.png)
 
 ### Results
 
