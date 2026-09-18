@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommended Games</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="page-container">
+
+        <header class="site-header">
+            <h1>Recommended Games</h1>
+        </header>
+
+        <main>
+            {% for game in games %}
+                <section class="scene-text">
+                    <p class="lead">{{ game.name }}</p>
+                    <p>Score: {{ game.score }}</p>
+                    <p>Genres: {{ game.genres | join(', ') }}</p>
+                    {% if game.website %}
+                        <p><a href="{{ game.website }}">{{ game.website }}</a></p>
+                    {% endif %}
+                </section>
+            {% endfor %}
+
+            <a href="{{ url_for('narrative.home') }}" class="btn btn-primary">Return Home</a>
+        </main>
+
+        <footer class="site-footer">
+            <p>MSc Dissertation Prototype — University of Birmingham</p>
+        </footer>
+
+    </div>
+</body>
+</html>

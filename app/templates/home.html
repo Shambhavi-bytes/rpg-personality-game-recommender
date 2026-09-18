@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPG Personality System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="page-container">
+
+        <header class="site-header">
+            <h1>
+                Narrative-Based RPG Personality Assessment
+                <span class="subtitle">An interactive personality-driven adventure</span>
+            </h1>
+        </header>
+
+        <main>
+            <p class="lead">
+                This is a short interactive RPG-style personality assessment.
+                You'll make choices throughout a brief narrative adventure, and
+                those choices determine your RPG personality archetype.
+                There are no right or wrong answers — just pick what feels most like you.
+            </p>
+
+            <a href="{{ url_for('narrative.begin') }}" class="btn btn-primary">Begin Adventure</a>
+        </main>
+
+        <footer class="site-footer">
+            <p>MSc Dissertation Prototype — University of Birmingham</p>
+        </footer>
+
+    </div>
+</body>
+</html>

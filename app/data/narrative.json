@@ -1,0 +1,212 @@
+{
+  "start_scene": "s01",
+
+  "scenes": {
+
+    "s01": {
+      "id": "s01",
+      "title": "The Unknown Passage",
+      "text": "The road ahead splits in two. One path is shown clearly on your map, well-travelled and familiar. The other is an unmarked passage disappearing into shadow, its destination unknown.",
+      "choices": [
+        { "id": "s01_a", "text": "Follow the familiar road shown on the map.", "next": "s01a", "score": {"openness": -1} },
+        { "id": "s01_b", "text": "Investigate the unfamiliar passage.", "next": "s01b", "score": {"openness": 1} }
+      ]
+    },
+    "s01a": {
+      "id": "s01a",
+      "title": "The Familiar Road",
+      "text": "You keep to the known road. It is uneventful, but steady progress carries you back toward the main route ahead.",
+      "choices": [
+        { "id": "s01a_continue", "text": "Continue onward.", "next": "s02" }
+      ]
+    },
+    "s01b": {
+      "id": "s01b",
+      "title": "The Unmarked Passage",
+      "text": "The passage twists beneath old stone, revealing a hidden chamber before opening back out onto the main route ahead.",
+      "choices": [
+        { "id": "s01b_continue", "text": "Continue onward.", "next": "s02" }
+      ]
+    },
+
+    "s02": {
+      "id": "s02",
+      "title": "The Locked Mechanism",
+      "text": "A locked mechanism blocks the way. An old set of instructions describes one method of opening it, but the device looks like it might respond to something else entirely.",
+      "choices": [
+        { "id": "s02_a", "text": "Try the conventional method described in the instructions.", "next": "s03", "score": {"openness": -1} },
+        { "id": "s02_b", "text": "Experiment with an unusual approach.", "next": "s03", "score": {"openness": 1} }
+      ]
+    },
+
+    "s03": {
+      "id": "s03",
+      "title": "The Strange Artifact",
+      "text": "Half-buried in the ground, you spot an object unlike anything you recognise. Its purpose isn't obvious.",
+      "choices": [
+        { "id": "s03_a", "text": "Leave it alone — its purpose can't be determined.", "next": "s04", "score": {"openness": -1} },
+        { "id": "s03_b", "text": "Examine it and try to understand what it might be.", "next": "s04", "score": {"openness": 1} }
+      ]
+    },
+
+    "s04": {
+      "id": "s04",
+      "title": "Preparing for the Journey",
+      "text": "One evening remains before a dangerous stretch of the journey begins.",
+      "choices": [
+        { "id": "s04_a", "text": "Spend the evening preparing supplies and checking the route.", "next": "s05", "score": {"conscientiousness": 1} },
+        { "id": "s04_b", "text": "Rest instead and deal with things as they come.", "next": "s05", "score": {"conscientiousness": -1} }
+      ]
+    },
+
+    "s05": {
+      "id": "s05",
+      "title": "The Failed Mechanism",
+      "text": "An ancient mechanism resists your first attempt to open it. It sits still, unmoved.",
+      "choices": [
+        { "id": "s05_a", "text": "Examine what went wrong and try again.", "next": "s05a", "score": {"conscientiousness": 1} },
+        { "id": "s05_b", "text": "Abandon the mechanism and find another way forward.", "next": "s05b", "score": {"conscientiousness": -1} }
+      ]
+    },
+    "s05a": {
+      "id": "s05a",
+      "title": "A Second Attempt",
+      "text": "Studying the mechanism's failure more closely, you adjust your approach. This time, something shifts — the way ahead opens.",
+      "choices": [
+        { "id": "s05a_continue", "text": "Continue onward.", "next": "s06" }
+      ]
+    },
+    "s05b": {
+      "id": "s05b",
+      "title": "A Different Route",
+      "text": "You leave the mechanism behind and find an alternate way around, rejoining the main path further ahead.",
+      "choices": [
+        { "id": "s05b_continue", "text": "Continue onward.", "next": "s06" }
+      ]
+    },
+
+    "s06": {
+      "id": "s06",
+      "title": "The Commitment",
+      "text": "You promised a companion that an important task would be finished before sunset. Partway through, it's clear it will take longer than planned.",
+      "choices": [
+        { "id": "s06_a", "text": "Continue working until the commitment is completed.", "next": "s07", "score": {"conscientiousness": 1} },
+        { "id": "s06_b", "text": "Stop and move on to another opportunity that has appeared.", "next": "s07", "score": {"conscientiousness": -1} }
+      ]
+    },
+
+    "s07": {
+      "id": "s07",
+      "title": "The Travellers",
+      "text": "At the edge of a settlement, a group of travellers is preparing for their own expedition.",
+      "choices": [
+        { "id": "s07_a", "text": "Introduce yourself and ask about joining them.", "next": "s08", "score": {"extraversion": 1} },
+        { "id": "s07_b", "text": "Continue your journey independently.", "next": "s08", "score": {"extraversion": -1} }
+      ]
+    },
+
+    "s08": {
+      "id": "s08",
+      "title": "Speaking Your Mind",
+      "text": "The group is deciding what to do next. You strongly disagree with the plan being discussed.",
+      "choices": [
+        { "id": "s08_a", "text": "Explain your concerns openly and suggest an alternative.", "next": "s09", "score": {"extraversion": 1} },
+        { "id": "s08_b", "text": "Keep your concerns to yourself and go along with the group.", "next": "s09", "score": {"extraversion": -1} }
+      ]
+    },
+
+    "s09": {
+      "id": "s09",
+      "title": "The Stranger's Question",
+      "text": "A stranger approaches and asks what brought you to the region.",
+      "choices": [
+        { "id": "s09_a", "text": "Engage openly and tell them about your journey.", "next": "s10", "score": {"extraversion": 1} },
+        { "id": "s09_b", "text": "Give a brief answer and avoid discussing yourself.", "next": "s10", "score": {"extraversion": -1} }
+      ]
+    },
+
+    "s10": {
+      "id": "s10",
+      "title": "The Injured Traveller",
+      "text": "You find an injured traveller on the road. You have enough supplies for yourself, but sharing them will make your own journey harder.",
+      "choices": [
+        { "id": "s10_a", "text": "Give the traveller some supplies and help them recover.", "next": "s11", "score": {"agreeableness": 1} },
+        { "id": "s10_b", "text": "Keep the supplies — they may be needed later.", "next": "s11", "score": {"agreeableness": -1} }
+      ]
+    },
+
+    "s11": {
+      "id": "s11",
+      "title": "The Divided Group",
+      "text": "Your companions strongly disagree about how to proceed.",
+      "choices": [
+        { "id": "s11_a", "text": "Try to find a solution that addresses everyone's concerns.", "next": "s12", "score": {"agreeableness": 1} },
+        { "id": "s11_b", "text": "Argue for the option you personally believe is best.", "next": "s12", "score": {"agreeableness": -1} }
+      ]
+    },
+
+    "s12": {
+      "id": "s12",
+      "title": "The Companion",
+      "text": "Escaping an ambush, one companion is struggling to keep pace with the group.",
+      "choices": [
+        { "id": "s12_a", "text": "Slow down so the companion can stay with you.", "next": "s12a", "score": {"agreeableness": 1} },
+        { "id": "s12_b", "text": "Continue with the group at full speed.", "next": "s12b", "score": {"agreeableness": -1} }
+      ]
+    },
+    "s12a": {
+      "id": "s12a",
+      "title": "Staying Together",
+      "text": "You match your pace to your companion's. It costs time, but the group reaches safety together, and the path continues ahead.",
+      "choices": [
+        { "id": "s12a_continue", "text": "Continue onward.", "next": "s13" }
+      ]
+    },
+    "s12b": {
+      "id": "s12b",
+      "title": "Pressing Ahead",
+      "text": "The group moves quickly and reaches safety without delay. The path continues ahead.",
+      "choices": [
+        { "id": "s12b_continue", "text": "Continue onward.", "next": "s13" }
+      ]
+    },
+
+    "s13": {
+      "id": "s13",
+      "title": "After the Danger",
+      "text": "A dangerous event has passed. The immediate threat is over.",
+      "choices": [
+        { "id": "s13_a", "text": "Keep thinking about what happened and worry it may return.", "next": "s14", "score": {"neuroticism": 1} },
+        { "id": "s13_b", "text": "Accept that the danger has passed and focus on what comes next.", "next": "s14", "score": {"neuroticism": -1} }
+      ]
+    },
+
+    "s14": {
+      "id": "s14",
+      "title": "The Aftermath",
+      "text": "You notice yourself replaying the dangerous encounter over and over.",
+      "choices": [
+        { "id": "s14_a", "text": "Remain preoccupied, worrying something similar will happen again.", "next": "s15", "score": {"neuroticism": 1} },
+        { "id": "s14_b", "text": "Acknowledge what happened, learn from it, and move on.", "next": "s15", "score": {"neuroticism": -1} }
+      ]
+    },
+
+    "s15": {
+      "id": "s15",
+      "title": "Under Pressure",
+      "text": "A crucial plan suddenly goes wrong.",
+      "choices": [
+        { "id": "s15_a", "text": "The setback becomes overwhelming, making it hard to decide what to do.", "next": "s_end", "score": {"neuroticism": 1} },
+        { "id": "s15_b", "text": "Regain composure and concentrate on the immediate problem.", "next": "s_end", "score": {"neuroticism": -1} }
+      ]
+    },
+
+    "s_end": {
+      "id": "s_end",
+      "title": "Journey's End",
+      "text": "Your adventure draws to a close here. The next chapter is still being written.",
+      "choices": []
+    }
+
+  }
+}

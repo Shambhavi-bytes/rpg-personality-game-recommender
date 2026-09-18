@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ scene.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="page-container">
+
+        <header class="site-header">
+            <h1>{{ scene.title }}</h1>
+        </header>
+
+        <main>
+            <section class="scene-text">
+                <p>{{ scene.text }}</p>
+            </section>
+
+            {% if scene.choices %}
+                <section>
+                    <form method="POST" action="{{ url_for('narrative.choose', scene_id=scene_id) }}">
+                        <div class="choice-list">
+                            {% for choice in scene.choices %}
+                                <button type="submit" name="choice_index" value="{{ loop.index0 }}" class="btn">
+                                    {{ choice.text }}
+                                </button>
+                            {% endfor %}
+                        </div>
+                    </form>
+                </section>
+            {% else %}
+                <section>
+                    <p class="scene-end-message">The story pauses here for now.</p>
+                    <a href="{{ url_for('narrative.results') }}" class="btn btn-primary">View Your Results</a>
+                    <a href="{{ url_for('narrative.home') }}" class="btn btn-primary">Return Home</a>
+                </section>
+            {% endif %}
+        </main>
+
+        <footer class="site-footer">
+            <p>MSc Dissertation Prototype — University of Birmingham</p>
+        </footer>
+
+    </div>
+</body>
+</html>

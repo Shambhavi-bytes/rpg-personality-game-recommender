@@ -1,0 +1,218 @@
+/*GLOBAL*/
+
+/* Use a consistent box model across all elements. */
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    /* Shared colour palette, fonts and spacing used across all templates for consistency and maintainability. */ 
+    --color-background: #14131a;
+    --color-surface: #1e1c26;
+    --color-border: #322f3d;
+
+    --color-text-primary: #e8e4f0;
+    --color-text-muted: #a39bb5;
+
+    --color-accent: #8b6ff0;
+    --color-accent-hover: #a488ff;
+
+    --color-accent-archetype: #d8b46a;
+    --color-accent-profile: #6fd4c9;
+    --color-accent-games: #7aa8ff;
+    --color-accent-character: #e8a0b8;
+
+    --font-body: "Georgia", "Times New Roman", serif;
+    --font-ui: "Segoe UI", Arial, sans-serif;
+
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+
+    --radius: 6px;
+}
+
+body {
+    margin: 0;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    line-height: 1.6;
+}
+
+
+/*LAYOUT*/
+
+/* Shared layout container reused across all application pages. */
+.page-container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: var(--spacing-lg) var(--spacing-md);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header.site-header {
+    text-align: center;
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: var(--spacing-lg);
+}
+
+main {
+    flex: 1;
+}
+
+footer.site-footer {
+    text-align: center;
+    padding-top: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-family: var(--font-ui);
+    font-size: 0.85rem;
+}
+
+
+/*TYPOGRAPHY*/
+
+h1 {
+    font-size: 2rem;
+    font-weight: normal;
+    letter-spacing: 0.03em;
+    margin: 0 0 var(--spacing-sm) 0;
+}
+
+h1 .subtitle {
+    display: block;
+    font-family: var(--font-ui);
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin-top: var(--spacing-sm);
+}
+
+p {
+    margin: 0 0 var(--spacing-md) 0;
+}
+
+p.lead {
+    font-size: 1.1rem;
+    color: var(--color-text-primary);
+}
+
+
+/*BUTTONS*/
+
+/* Base button style reused across the application. */
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    font-family: var(--font-ui);
+    font-size: 1rem;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn:hover {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-background);
+}
+
+/* Primary button used for the main action on each page. */
+.btn-primary {
+    width: auto;
+    text-align: center;
+    background-color: var(--color-accent);
+    color: var(--color-background);
+    border-color: var(--color-accent);
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
+}
+
+a.btn {
+    text-decoration: none;
+    text-align: center;
+}
+
+
+/*NARRATIVE*/
+
+/* Styles for displaying narrative scenes. */
+.scene-text {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.choice-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.scene-end-message {
+    font-style: italic;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-md);
+}
+
+
+/*RESULTS*/
+
+.scene-text--archetype {
+    border-left: 6px solid var(--color-accent-archetype);
+    background-color: #2d282b;
+}
+.scene-text--archetype .lead { color: var(--color-accent-archetype); }
+
+.scene-text--profile {
+    border-left: 6px solid var(--color-accent-profile);
+    background-color: #242b33;
+}
+.scene-text--profile .lead { color: var(--color-accent-profile); }
+
+.scene-text--games {
+    border-left: 6px solid var(--color-accent-games);
+    background-color: #252737;
+}
+.scene-text--games .lead { color: var(--color-accent-games); }
+
+.scene-text--character {
+    border-left: 6px solid var(--color-accent-character);
+    background-color: #2e2732;
+}
+.scene-text--character .lead { color: var(--color-accent-character); }
+
+
+/*RESPONSIVE*/
+
+/* Adjust layout for smaller screens. */
+@media (max-width: 600px) {
+    .page-container {
+        padding: var(--spacing-md);
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    .scene-text {
+        padding: var(--spacing-md);
+    }
+}

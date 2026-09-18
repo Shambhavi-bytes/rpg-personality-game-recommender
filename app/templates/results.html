@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="page-container">
+
+        <header class="site-header">
+            <h1>Your Results</h1>
+        </header>
+
+        <main>
+            <section class="scene-text scene-text--archetype">
+                <p class="lead">Your RPG Archetype</p>
+                <p>{{ profile.archetype }}</p>
+                <p>{{ profile.description }}</p>
+            </section>
+
+            <section class="scene-text scene-text--profile">
+                <p class="lead">Your Personality Profile</p>
+                <ul>
+                    {% for trait, data in profile.traits.items() %}
+                        <li>
+                            {{ trait|capitalize }} —
+                            {% if data.score > 0 %}+{{ data.score }}{% else %}{{ data.score }}{% endif %}
+                            — {{ data.level }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </section>
+
+           <section class="scene-text scene-text--games">
+                {% if games %}
+                    {% if games[0].source == 'fallback' %}
+                        <p class="lead">Games You Might Enjoy Exploring</p>
+                    {% else %}
+                        <p class="lead">Recommended Games</p>
+                    {% endif %}
+                    {% for game in games %}
+                        <div>
+                            {% if game.source == 'personality' %}
+                                <p><strong>{{ game.name }}</strong> — Score: {{ game.score }}</p>
+                            {% else %}
+                                <p><strong>{{ game.name }}</strong></p>
+                            {% endif %}
+                            <p>Genres: {{ game.genres | join(', ') }}</p>
+                            {% if game.website %}
+                                <p><a href="{{ game.website }}">{{ game.website }}</a></p>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="lead">Recommended Games</p>
+                    <p>No positive-scoring recommendations were found for this profile.</p>
+                {% endif %}
+            </section>
+
+            <section class="scene-text scene-text--character">
+                <p class="lead">Your Personalised RPG Character</p>
+                 {% if character_profile.available %}
+                    <p><strong>{{ character_profile.character_name }}</strong></p>
+
+                    <p><strong>Origin</strong></p>
+                    <p>{{ character_profile.backstory }}</p>
+
+                    <p><strong>Play Style</strong></p>
+                    <p>{{ character_profile.play_style }}</p>
+
+                    <p><strong>Strengths</strong></p>
+                    <p>{{ character_profile.strengths }}</p>
+
+                    <p><strong>Challenges</strong></p>
+                    <p>{{ character_profile.challenges }}</p>
+
+                    <p><strong>Why These Games Fit You</strong></p>
+                    <p>{{ character_profile.game_fit }}</p>
+                 {% else %}
+                    <p>Personalised character generation is currently unavailable.</p>
+                 {% endif %}
+            </section>
+
+            <a href="{{ url_for('narrative.home') }}" class="btn btn-primary">Return Home</a>
+        </main>
+
+        <footer class="site-footer">
+            <p>MSc Dissertation Prototype — University of Birmingham</p>
+        </footer>
+
+    </div>
+</body>
+</html>
