@@ -36,9 +36,11 @@ two cases without guessing.
 
 import csv
 import os
+import io
+import zipfile  
 from flask import current_app
 
-_DATA_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "games_clean.csv")
+_DATA_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "games_clean.csv.zip")
 
 _games_cache = None  # in-memory cache, loaded once, same pattern as narrative_service
 
@@ -55,12 +57,14 @@ def _load_games():
     global _games_cache
     if _games_cache is None:
         games = []
-        with open(_DATA_PATH, "r", encoding="utf-8") as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                genre_field = row.get("Genres", "") or ""
-                genres = {g.strip() for g in genre_field.split(",") if g.strip()}
-                games.append({
+        with zipfile.ZipFile(_DATA_PATH, "r") as archive:
+            with archive.open("games_clean.csv") as file:
+                text_file = io.TextIOWrapper(file, encoding="utf-8")
+                reader = csv.DictReader(text_file)
+                for row in reader:
+                    genre_field = row.get("Genres", "") or ""
+                    genres = {g.strip() for g in genre_field.split(",") if g.strip()}
+                    games.append({
                     "appid": row.get("AppID", "").strip(),
                     "name": row.get("Name", "").strip(),
                     "website": row.get("Website", "").strip(),

@@ -20,3 +20,4 @@ env/
 instance/
 
 app/data/games_clean.csv
+!app/data/games_clean.csv.zip
